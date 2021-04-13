@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class PlayerMovementScript : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class PlayerMovementScript : MonoBehaviour
     private float jumpHeight = 3f;
     private Vector3 velocity;
     private bool isGrounded;
+    private bool usingXr = false;
+
+
+    public GameObject XR;
+    public GameObject Non_XR;
+
 
     private CharacterController controller;
 
@@ -24,6 +31,18 @@ public class PlayerMovementScript : MonoBehaviour
     void Start()
     {
         controller = this.GetComponent<CharacterController>();
+        if (XRSettings.isDeviceActive)
+        {
+            Non_XR.SetActive(false);
+            XR.SetActive(true);
+            usingXr = true;
+        }
+        else
+        {
+            Non_XR.SetActive(true);
+            XR.SetActive(false);
+            usingXr = false;
+        }
     }
 
     // Update is called once per frame
@@ -36,21 +55,40 @@ public class PlayerMovementScript : MonoBehaviour
             velocity.y = -2f;
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        controller.Move(move * speed * Time.deltaTime);
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (!usingXr)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+            Vector3 move = transform.right * x + transform.forward * z;
+
+            controller.Move(move * speed * Time.deltaTime);
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            }
         }
 
         this.velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    public void triggerXR(float triggerValue)
+    {
+
+    }
+
+    public void primaryButtonDown()
+    {
+        if (isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+        }
+    }
+    public void axis2DXR(Vector2 axis)
+    {
+        Vector3 move = transform.right * axis.x + transform.forward * axis.y;
+        controller.Move(move * speed * Time.deltaTime);
     }
 }
