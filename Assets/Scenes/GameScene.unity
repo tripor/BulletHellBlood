@@ -318,11 +318,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
+  accelarationOnFreeze: 5
   groundDistance: 0.4
   gravity: -9.81
   jumpHeight: 3
+  slowMotionTime: 10
+  returnToPositionTime: 2
   XR: {fileID: 590903429}
   Non_XR: {fileID: 1316639584}
+  XRCamera: {fileID: 625239070}
   groundCheck: {fileID: 1336656994}
   groundMask:
     serializedVersion: 2
