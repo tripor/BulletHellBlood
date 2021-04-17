@@ -23,6 +23,10 @@ public class EnemyShipLogic : MonoBehaviour
     private int currentPattern;
 
     public List<Pattern> patterns = new List<Pattern>();
+    public float radiusCheck = 2f;
+    public LayerMask mask;
+
+    private GameObject targetShip;
 
 
     // Start is called before the first frame update
@@ -31,6 +35,7 @@ public class EnemyShipLogic : MonoBehaviour
         timer = 0;
         currentRepetition = 0;
         currentPattern = 0;
+        targetShip = GameManager.Instance.friendlyShips[UnityEngine.Random.Range(0, GameManager.Instance.friendlyShips.Count)];
     }
 
     // Update is called once per frame
@@ -38,6 +43,7 @@ public class EnemyShipLogic : MonoBehaviour
     {
         if (GameManager.Instance.gameRunning)
         {
+            transform.LookAt(targetShip.transform.position);
             transform.position += transform.forward * Time.deltaTime;
             timer += Time.deltaTime;
             if (timer > firingFrequency)
@@ -58,7 +64,7 @@ public class EnemyShipLogic : MonoBehaviour
         float angle = 0;
         for (int i = 0; i < amount; i++)
         {
-            Instantiate(prefab, transform.position, Quaternion.Euler(angle, 0f, 0f));
+            Instantiate(prefab, transform.position, transform.rotation * Quaternion.Euler(0f, 0f, angle));
             angle += angles;
         }
 
@@ -68,5 +74,19 @@ public class EnemyShipLogic : MonoBehaviour
             currentPattern++;
             if (currentPattern >= patterns.Count) currentPattern = 0;
         }
+    }
+    private void FixedUpdate()
+    {
+        if (GameManager.Instance.gameRunning)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, radiusCheck, mask);
+            for (int i = 0; i < hitColliders.Length; i++)
+            {
+                GameManager.Instance.addScore();
+                Destroy(hitColliders[i].gameObject);
+            }
+        }
+
+
     }
 }

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerShip
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,11 +14,11 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Bullet
+  - Ship
+  - Enemy
+  - FriendlyBullet
   - 
   - 
   - 

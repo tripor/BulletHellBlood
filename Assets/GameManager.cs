@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +11,19 @@ public class GameManager : MonoBehaviour
 
     public bool gameRunning;
     private float timer;
+
+    public List<GameObject> enemyShips;
+
+    public List<GameObject> friendlyShips;
+
+    public TextMeshProUGUI scoreText;
+    public GameObject nonXrCanvas;
+    public Slider slider;
+
+    private int score = 0;
+    private bool usingVr = false;
+    public int maxLife = 200;
+    private int life = 200;
 
 
     private void Awake()
@@ -23,6 +39,19 @@ public class GameManager : MonoBehaviour
     {
         gameRunning = false;
         timer = 0;
+        scoreText.text = "Score: " + score;
+        slider.maxValue = maxLife;
+        slider.value = maxLife;
+        life = maxLife;
+        if (XRSettings.isDeviceActive)
+        {
+            usingVr = true;
+            nonXrCanvas.SetActive(false);
+        }
+        else
+        {
+            usingVr = false;
+        }
     }
 
     // Update is called once per frame
@@ -52,5 +81,26 @@ public class GameManager : MonoBehaviour
         {
             gameRunning = true;
         }
+    }
+
+    public void addScore()
+    {
+        score++;
+        scoreText.text = "Score: " + score;
+    }
+
+    public void removeLife()
+    {
+        life--;
+        slider.value = life;
+        if (life == 0)
+        {
+            endGame();
+        }
+    }
+
+    public void endGame()
+    {
+
     }
 }
