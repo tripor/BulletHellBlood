@@ -12,6 +12,7 @@ public class ShipMovement : MonoBehaviour
     private Vector3 endPosition;
     private bool moving = false;
     public float flightDuration = 10;
+    public float maxDistance = 10f;
     // Start is called before the first frame update
     void Start()
     {
