@@ -129,9 +129,9 @@ MonoBehaviour:
   m_OnSelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1209663097281276309}
         m_TargetAssemblyTypeName: ShipInteractor, Assembly-CSharp
-        m_MethodName: interactWithShipStarted
+        m_MethodName: 
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1209663097281276319}
