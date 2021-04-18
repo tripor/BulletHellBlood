@@ -217,6 +217,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1209663097281276308, guid: 1c4264cb3a68ecf44ad0e45aa440eb84, type: 3}
+      propertyPath: m_OnSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 294090018}
+    - target: {fileID: 1209663097281276308, guid: 1c4264cb3a68ecf44ad0e45aa440eb84, type: 3}
+      propertyPath: m_OnSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: interactWithShipStarted
+      objectReference: {fileID: 0}
     - target: {fileID: 1209663097281276315, guid: 1c4264cb3a68ecf44ad0e45aa440eb84, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -274,6 +282,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1209663097281276308, guid: 1c4264cb3a68ecf44ad0e45aa440eb84, type: 3}
+      propertyPath: m_OnSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 294090018}
+    - target: {fileID: 1209663097281276308, guid: 1c4264cb3a68ecf44ad0e45aa440eb84, type: 3}
+      propertyPath: m_OnSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: interactWithShipStarted
+      objectReference: {fileID: 0}
     - target: {fileID: 1209663097281276315, guid: 1c4264cb3a68ecf44ad0e45aa440eb84, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -512,9 +528,9 @@ MonoBehaviour:
   playerNonXrCamera: {fileID: 1316639588}
   line: {fileID: 5580319282140107561, guid: 888234c04e00d3f489782cd76090dc35, type: 3}
   rightHand: {fileID: 2121810566}
-  drawLine: 1
+  drawLine: 0
   moveToPosition: 0
-  pickAndPlace: 0
+  pickAndPlace: 1
   maxDistanceDraw: 0.5
 --- !u!1 &305517769
 GameObject:
@@ -1233,8 +1249,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -651, y: 420}
-  m_SizeDelta: {x: 457.432, y: 86.762}
+  m_AnchoredPosition: {x: -625.812, y: 472}
+  m_SizeDelta: {x: 543.8079, y: 60.4279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &487039374
 MonoBehaviour:
@@ -1283,7 +1299,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.624
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1763,7 +1779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 579, y: 417}
+  m_AnchoredPosition: {x: 692.5, y: 472}
   m_SizeDelta: {x: 200, y: 80.777}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1221676406
@@ -2967,6 +2983,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1209663097281276308, guid: 1c4264cb3a68ecf44ad0e45aa440eb84, type: 3}
+      propertyPath: m_OnSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 294090018}
+    - target: {fileID: 1209663097281276308, guid: 1c4264cb3a68ecf44ad0e45aa440eb84, type: 3}
+      propertyPath: m_OnSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: interactWithShipStarted
+      objectReference: {fileID: 0}
     - target: {fileID: 1209663097281276315, guid: 1c4264cb3a68ecf44ad0e45aa440eb84, type: 3}
       propertyPath: m_RootOrder
       value: 3
