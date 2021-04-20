@@ -9,6 +9,7 @@ public class gameOverScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
         int lastScore = PlayerPrefs.GetInt("lastscore", 0);
         int bestScore = PlayerPrefs.GetInt("bestscore", 0);
         if (lastScore > bestScore)

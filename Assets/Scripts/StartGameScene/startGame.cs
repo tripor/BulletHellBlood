@@ -8,6 +8,10 @@ using UnityEngine.UI;
 public class startGame : MonoBehaviour
 {
     public GameObject loading;
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
     public void startGameplay()
     {
         this.GetComponent<Button>().interactable = false;
