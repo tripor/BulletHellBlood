@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.XR;
+using UnityEngine.SceneManagement;
+
 public class SavedData : MonoBehaviour
 {
     int Score;
@@ -18,5 +22,15 @@ public class SavedData : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void GotoStartScene()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
+
+    void RestartGame()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }
