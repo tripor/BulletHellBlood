@@ -103,7 +103,8 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        //PlayerPrefs.SetInt(score);
-        SceneManager.LoadScene("GameOverScene");
+        PlayerPrefs.SetInt("lastscore", score);
+        gameRunning = false;
+        SceneManager.LoadScene(2);
     }
 }

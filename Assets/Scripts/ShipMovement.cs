@@ -22,11 +22,13 @@ public class ShipMovement : MonoBehaviour
     private bool drawingLineCheck = false;
     private float skipPositions;
     private float firingTimer = 0;
+    public Vector3 shipLastPosition;
     // Start is called before the first frame update
     void Start()
     {
         time = 0;
         firingTimer = 0;
+        shipLastPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (GameManager.Instance.gameRunning)
         {
+            shipLastPosition = transform.position;
             firingTimer += Time.deltaTime;
             if (firingTimer > firingInterval)
             {

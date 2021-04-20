@@ -64,19 +64,20 @@ public class ShipInteractor : MonoBehaviour
             }
             if (creatingPath)
             {
+                Vector3 shipLastPos = ship.GetComponent<ShipMovement>().shipLastPosition;
                 if (usingXr)
                 {
                     Vector3 position = rightHand.transform.position + transform.position;
-                    float distance = Vector3.Distance(position, ship.transform.position);
+                    float distance = Vector3.Distance(position, shipLastPos);
                     if (drawLine)
                         lineRender.positionCount++;
                     if (distance > ship.GetComponent<ShipMovement>().maxDistance)
                     {
                         float percentage = ship.GetComponent<ShipMovement>().maxDistance / distance;
                         lineRender.SetPosition(lineRender.positionCount - 1, new Vector3(
-                            ((position.x - ship.transform.position.x) * percentage) + ship.transform.position.x,
-                            ((position.y - ship.transform.position.y) * percentage) + ship.transform.position.y,
-                            ((position.z - ship.transform.position.z) * percentage) + ship.transform.position.z
+                            ((position.x - shipLastPos.x) * percentage) + shipLastPos.x,
+                            ((position.y - shipLastPos.y) * percentage) + shipLastPos.y,
+                            ((position.z - shipLastPos.z) * percentage) + shipLastPos.z
                         ));
                     }
                     else
@@ -85,7 +86,7 @@ public class ShipInteractor : MonoBehaviour
                 else
                 {
                     Vector3 position = transform.position + playerNonXrCamera.transform.forward * 2 + Vector3.up;
-                    float distance = Vector3.Distance(position, ship.transform.position);
+                    float distance = Vector3.Distance(position, shipLastPos);
                     if (drawLine && (Input.GetMouseButtonDown(1) || drawingLineStarted))
                     {
                         drawingLineStarted = true;
@@ -97,9 +98,9 @@ public class ShipInteractor : MonoBehaviour
                         {
                             float percentage = maxDistanceDraw / distance;
                             lineRender.SetPosition(lineRender.positionCount - 1, new Vector3(
-                                ((position.x - ship.transform.position.x) * percentage) + ship.transform.position.x,
-                                ((position.y - ship.transform.position.y) * percentage) + ship.transform.position.y,
-                                ((position.z - ship.transform.position.z) * percentage) + ship.transform.position.z
+                                ((position.x - shipLastPos.x) * percentage) + shipLastPos.x,
+                                ((position.y - shipLastPos.y) * percentage) + shipLastPos.y,
+                                ((position.z - shipLastPos.z) * percentage) + shipLastPos.z
                             ));
                         }
                         else
@@ -109,9 +110,9 @@ public class ShipInteractor : MonoBehaviour
                     {
                         float percentage = ship.GetComponent<ShipMovement>().maxDistance / distance;
                         lineRender.SetPosition(lineRender.positionCount - 1, new Vector3(
-                            ((position.x - ship.transform.position.x) * percentage) + ship.transform.position.x,
-                            ((position.y - ship.transform.position.y) * percentage) + ship.transform.position.y,
-                            ((position.z - ship.transform.position.z) * percentage) + ship.transform.position.z
+                            ((position.x - shipLastPos.x) * percentage) + shipLastPos.x,
+                            ((position.y - shipLastPos.y) * percentage) + shipLastPos.y,
+                            ((position.z - shipLastPos.z) * percentage) + shipLastPos.z
                         ));
                     }
                     else
@@ -152,19 +153,20 @@ public class ShipInteractor : MonoBehaviour
     {
         if (creatingPath && !GameManager.Instance.gameRunning)
         {
+            Vector3 shipLastPos = ship.GetComponent<ShipMovement>().shipLastPosition;
             if (usingXr)
             {
                 // ship.GetComponent<ShipMovement>().setPosition(rightHand.transform.position + transform.position, lineObj);
 
                 Vector3 position = rightHand.transform.position + transform.position;
-                float distance = Vector3.Distance(position, ship.transform.position);
+                float distance = Vector3.Distance(position, shipLastPos);
                 if (distance > ship.GetComponent<ShipMovement>().maxDistance)
                 {
                     float percentage = ship.GetComponent<ShipMovement>().maxDistance / distance;
                     Vector3 newPosition = new Vector3(
-                            ((position.x - ship.transform.position.x) * percentage) + ship.transform.position.x,
-                            ((position.y - ship.transform.position.y) * percentage) + ship.transform.position.y,
-                            ((position.z - ship.transform.position.z) * percentage) + ship.transform.position.z
+                            ((position.x - shipLastPos.x) * percentage) + shipLastPos.x,
+                            ((position.y - shipLastPos.y) * percentage) + shipLastPos.y,
+                            ((position.z - shipLastPos.z) * percentage) + shipLastPos.z
                         );
                     if (drawLine)
                     {
@@ -206,14 +208,14 @@ public class ShipInteractor : MonoBehaviour
                 // ship.GetComponent<ShipMovement>().setPosition(transform.position + playerNonXrCamera.transform.forward * 2 + Vector3.up, lineObj);
 
                 Vector3 position = transform.position + playerNonXrCamera.transform.forward * 2 + Vector3.up;
-                float distance = Vector3.Distance(position, ship.transform.position);
+                float distance = Vector3.Distance(position, shipLastPos);
                 if (distance > ship.GetComponent<ShipMovement>().maxDistance)
                 {
                     float percentage = ship.GetComponent<ShipMovement>().maxDistance / distance;
                     Vector3 newPosition = new Vector3(
-                            ((position.x - ship.transform.position.x) * percentage) + ship.transform.position.x,
-                            ((position.y - ship.transform.position.y) * percentage) + ship.transform.position.y,
-                            ((position.z - ship.transform.position.z) * percentage) + ship.transform.position.z
+                            ((position.x - shipLastPos.x) * percentage) + shipLastPos.x,
+                            ((position.y - shipLastPos.y) * percentage) + shipLastPos.y,
+                            ((position.z - shipLastPos.z) * percentage) + shipLastPos.z
                         );
                     if (drawLine)
                     {
