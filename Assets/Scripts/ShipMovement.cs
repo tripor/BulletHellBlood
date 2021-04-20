@@ -127,11 +127,11 @@ public class ShipMovement : MonoBehaviour
             {
                 if (hitColliders[i].tag == "Enemy")
                 {
-                    GameManager.Instance.endGame();
+                    GameManager.Instance.EndGame();
                 }
                 else
                 {
-                    GameManager.Instance.removeLife();
+                    GameManager.Instance.RemoveLife();
                     Destroy(hitColliders[i].gameObject);
                 }
             }

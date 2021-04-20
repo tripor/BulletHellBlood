@@ -82,7 +82,7 @@ public class EnemyShipLogic : MonoBehaviour
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, radiusCheck, mask);
             for (int i = 0; i < hitColliders.Length; i++)
             {
-                GameManager.Instance.addScore();
+                GameManager.Instance.AddScore();
                 Destroy(hitColliders[i].gameObject);
             }
         }

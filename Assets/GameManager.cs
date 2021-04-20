@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -70,12 +71,12 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                continueGame();
+                ContinueGame();
             }
         }
     }
 
-    public void continueGame()
+    public void ContinueGame()
     {
         if (!gameRunning)
         {
@@ -83,24 +84,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void addScore()
+    public void AddScore()
     {
         score++;
         scoreText.text = "Score: " + score;
     }
 
-    public void removeLife()
+    public void RemoveLife()
     {
         life--;
         slider.value = life;
         if (life == 0)
         {
-            endGame();
+
+            Invoke("EndGame", 2f);
         }
     }
 
-    public void endGame()
+    public void EndGame()
     {
-
+        //PlayerPrefs.SetInt(score);
+        SceneManager.LoadScene("GameOverScene");
     }
 }

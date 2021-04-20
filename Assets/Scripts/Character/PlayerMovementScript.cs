@@ -82,7 +82,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     public void primaryButtonDown()
     {
-        GameManager.Instance.continueGame();
+        GameManager.Instance.ContinueGame();
     }
     public void axis2DXR(Vector2 axis)
     {
