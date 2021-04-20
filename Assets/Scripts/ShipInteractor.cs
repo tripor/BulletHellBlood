@@ -22,6 +22,8 @@ public class ShipInteractor : MonoBehaviour
     private GameObject lineObj = null;
     private bool drawingLineStarted = false;
     public float maxDistanceDraw = 0.5f;
+    public GameObject movingShipInfo;
+    public GameObject middleCircle;
 
     // Start is called before the first frame update
     void Start()
@@ -136,6 +138,11 @@ public class ShipInteractor : MonoBehaviour
     {
         if (!creatingPath && !GameManager.Instance.gameRunning)
         {
+            if (!usingXr)
+            {
+                movingShipInfo.SetActive(true);
+                middleCircle.SetActive(false);
+            }
             creatingPath = true;
             this.ship = ship;
             this.ship.GetComponent<ShipMovement>().deleteLastLine();
@@ -207,6 +214,8 @@ public class ShipInteractor : MonoBehaviour
             {
                 // ship.GetComponent<ShipMovement>().setPosition(transform.position + playerNonXrCamera.transform.forward * 2 + Vector3.up, lineObj);
 
+                movingShipInfo.SetActive(false);
+                middleCircle.SetActive(true);
                 Vector3 position = transform.position + playerNonXrCamera.transform.forward * 2 + Vector3.up;
                 float distance = Vector3.Distance(position, shipLastPos);
                 if (distance > ship.GetComponent<ShipMovement>().maxDistance)
