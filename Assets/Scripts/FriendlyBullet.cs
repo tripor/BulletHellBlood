@@ -9,6 +9,8 @@ public class FriendlyBullet : MonoBehaviour
     private Vector3 startPosition;
     public float speedRotation = 0.5f;
     public float speed = 5f;
+    [SerializeField] bool StartCurvedUp = true, IsHoming = true;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class FriendlyBullet : MonoBehaviour
     {
         if (GameManager.Instance.gameRunning)
         {
-            if (Vector3.Distance(target.transform.position, transform.position) < 10)
+            if (IsHoming && Vector3.Distance(target.transform.position, transform.position) < 10)
             {
                 transform.LookAt(target.transform.position);
                 transform.rotation *= Quaternion.Euler(90, 0, 0);
@@ -27,7 +29,10 @@ public class FriendlyBullet : MonoBehaviour
             else
             {
                 Vector3 dir = target.transform.position - transform.position;
+                if (target == null)
+                    dir = transform.forward;
                 Quaternion rot = Quaternion.LookRotation(dir);
+
                 transform.rotation = Quaternion.Slerp(transform.rotation * Quaternion.Euler(-90, 0, 0), rot, speedRotation * Time.deltaTime) * Quaternion.Euler(90, 0, 0);
             }
             transform.position += transform.up * Time.deltaTime * speed;

@@ -109,6 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 234d27d6237a7d44cb91022bd4211ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartCurvedUp: 1
+  IsHoming: 0
   speed: 1
   speedRotation: 0.2
   lifespan: 100
