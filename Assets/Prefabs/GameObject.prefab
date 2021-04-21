@@ -2068,6 +2068,8 @@ MonoBehaviour:
   moveToPosition: 0
   pickAndPlace: 0
   maxDistanceDraw: 0.5
+  movingShipInfo: {fileID: 0}
+  middleCircle: {fileID: 0}
 --- !u!1 &7599471177875606482
 GameObject:
   m_ObjectHideFlags: 0
