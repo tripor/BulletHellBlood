@@ -3972,7 +3972,7 @@ PrefabInstance:
     - target: {fileID: 3270975899460105688, guid: 2c2d5d3612ee6e841803bb3148204ad4, type: 3}
       propertyPath: patterns.Array.data[0].Bullet
       value: 
-      objectReference: {fileID: 5279223801309656268, guid: 3f62be1bf69c50a458e2c059b0724bda, type: 3}
+      objectReference: {fileID: 2215956123786694400, guid: 503434c856a56434f8e4b171eabcded9, type: 3}
     - target: {fileID: 3270975899460105691, guid: 2c2d5d3612ee6e841803bb3148204ad4, type: 3}
       propertyPath: m_RootOrder
       value: 8
