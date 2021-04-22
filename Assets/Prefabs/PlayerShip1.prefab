@@ -239,6 +239,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 806a9106f27fa14438e67d3962998e2e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 41a972cfedd8eee4aafe916bae67bfe8, type: 2}
     - target: {fileID: 919132149155446097, guid: 806a9106f27fa14438e67d3962998e2e, type: 3}
       propertyPath: m_Name
       value: starpunk1
